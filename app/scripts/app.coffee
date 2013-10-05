@@ -1,10 +1,10 @@
 'use strict'
 
-angular.module('mcwordyApp', [])
+angular.module('mcwordy', [])
   .config ($routeProvider) ->
     $routeProvider
-      .when '/',
-        templateUrl: 'views/main.html'
-        controller: 'MainCtrl'
+      .when '/moosh/new',
+        templateUrl: 'views/moosh/new.html'
+        controller: 'MooshNewCtrl'
       .otherwise
-        redirectTo: '/'
+        redirectTo: '/moosh/new'
