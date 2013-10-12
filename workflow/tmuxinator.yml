@@ -1,0 +1,7 @@
+project_name: webstack
+project_root: ~/projects/web_sites/webstack
+rvm: 1.9.3
+tabs:
+  - angular_server: git pull && cd html-app && grunt server
+  - datomic: datomic
+  - shell: 
