@@ -3,4 +3,4 @@ dist
 .tmp
 .sass-cache
 html-app/app/bower_components
-
+.lein-env
