@@ -3,8 +3,8 @@
             compojure.handler
             [ring.util.response :as resp]
             [mcwordy.controllers.posts :as posts]
-            [mcwordy.controllers.users :as users]
-            [mcwordy.controllers.session :as session]
+            ;; [mcwordy.controllers.users :as users]
+            ;; [mcwordy.controllers.session :as session]
             [cemerick.friend :as friend])
   (:use [compojure.core :as compojure.core :only (GET PUT POST DELETE ANY defroutes)]
         mcwordy.config))
@@ -40,13 +40,13 @@
   (authroute DELETE "/posts/:id" posts/delete!)
 
   ;; Users
-  (authroute POST "/users" users/registration-success-response)
-  (route GET "/users/:id" users/show)
-  (authroute POST "/users/:id" users/update!)
-  (authroute POST "/users/:id/password" users/change-password!)
+  ;; (authroute POST "/users" users/registration-success-response)
+  ;; (route GET "/users/:id" users/show)
+  ;; (authroute POST "/users/:id" users/update!)
+  ;; (authroute POST "/users/:id/password" users/change-password!)
 
   ;; auth
-  (route POST "/login" session/create!)
+  ;; (route POST "/login" session/create!)
   (friend/logout
    (ANY "/logout" []
         (ring.util.response/redirect "/")))

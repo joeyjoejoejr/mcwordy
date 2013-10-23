@@ -1,6 +1,6 @@
 (ns mcwordy.models.permissions
-  (:use mcwordy.utils
-        mcwordy.config))
+  (:require [mcwordy.lib.utils :refer :all]
+            [mcwordy.config :refer :all]))
 
 (def moderator-usernames (config :moderator-names))
 
