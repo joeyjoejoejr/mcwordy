@@ -1,7 +1,7 @@
 (ns tasks.db
   (:refer-clojure :exclude [alter drop complement
                             bigint boolean char double float time])
-  (:require [gratefulplace.models.user :as user])
+  (:require [mcwordy.models.user :as user])
   (:use (lobos core connectivity)))
 
 (defn rebuild

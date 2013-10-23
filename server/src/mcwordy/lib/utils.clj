@@ -55,3 +55,7 @@
        ~@(map #(list (:argnames %)
                      `(~name ~@(:application %)))
               (drop-last unpacked-args)))))
+
+(defn deserialize
+  [m & ks]
+  (reduce #(assoc % %2 (read-string (%2 %))) m ks))

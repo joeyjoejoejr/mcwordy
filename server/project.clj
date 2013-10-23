@@ -8,6 +8,7 @@
 
   :dependencies [[org.clojure/clojure "1.5.1"]
                  [org.clojure/clojure-contrib "1.2.0"]
+                 [korma "0.3.0-RC5"]
                  [lobos "1.0.0-beta1"]
                  [postgresql "9.1-901.jdbc4"]
                  [environ "0.4.0"]

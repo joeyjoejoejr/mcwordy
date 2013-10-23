@@ -24,23 +24,13 @@
       (create (index :user [:email])))
   (down [] (drop (table :user))))
 
-(defmigration add-posts-table
+(defmigration add-mooshes-table
   (up [] (create
-          (tbl :post
-               (varchar :title 200 :unique)
-               (text :content)
-               (boolean :hidden (default false))
+          (tbl :moosh
+               (text :words)
+               (text :response)
                (refer-to :user))))
-  (down [] (drop (table :post))))
-
-(defmigration add-comments-table
-  (up [] (create
-          (tbl :comment
-               (text :content)
-               (boolean :hidden (default false))
-               (refer-to :user)
-               (refer-to :post))))
-  (down [] (drop (table :comment))))
+  (down [] (drop (table :moosh))))
 
 (defmigration add-sessions-table
   (up [] (create
@@ -49,25 +39,3 @@
                (text :data)))
       (create (index :user_session [:key])))
   (down [] (drop (table :user_session))))
-
-(defmigration add-favorites-table
-  (up [] (create
-          (tbl :favorite
-               (refer-to :user)
-               (refer-to :post)))
-      (create (index :favorite [:user_id :post_id] :unique)))
-  (down [] (drop (table :favorite))))
-
-(defmigration add-comment-notifications-table
-  (up [] (create
-          (-> (table :comment_notification)
-              (refer-to :user)
-              (refer-to :comment)
-              (boolean :viewed (default false)))))
-  (down [] (drop (table :comment_notification))))
-
-(defmigration add-user-preferences
-  (up [] (alter :add
-                (table :user
-                       (boolean :receive_comment_notifications (default true))
-                       (boolean :receive_newsletter (default true))))))

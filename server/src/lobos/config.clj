@@ -1,5 +1,5 @@
 (ns lobos.config
   (:use lobos.connectivity
-        gratefulplace.models.db))
+        mcwordy.models.db))
 
 (open-global db-config)

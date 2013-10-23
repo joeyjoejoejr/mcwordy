@@ -2,7 +2,7 @@
   (:require compojure.route
             compojure.handler
             [ring.util.response :as resp]
-            [mcwordy.controllers.posts :as posts]
+            [mcwordy.controllers.mooshes :as mooshes]
             ;; [mcwordy.controllers.users :as users]
             ;; [mcwordy.controllers.session :as session]
             [cemerick.friend :as friend])
@@ -34,10 +34,10 @@
               [resp/file-response resp/resource-response]))
     
   ;; Posts
-  (authroute POST "/posts" posts/create!)
-  (authroute PUT  "/posts/:id" posts/update!)
-  (authroute POST "/posts/:id" posts/update!)
-  (authroute DELETE "/posts/:id" posts/delete!)
+  (authroute POST "/mooshes" mooshes/create!)
+  (authroute PUT  "/mooshes/:id" mooshes/update!)
+  (authroute POST "/mooshes/:id" mooshes/update!)
+  (authroute DELETE "/mooshes/:id" mooshes/delete!)
 
   ;; Users
   ;; (authroute POST "/users" users/registration-success-response)

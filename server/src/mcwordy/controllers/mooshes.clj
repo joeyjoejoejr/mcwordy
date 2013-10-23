@@ -1,4 +1,4 @@
-(ns mcwordy.controllers.posts
+(ns mcwordy.controllers.mooshes
   (:require [flyingmachine.webutils.validation :refer (if-valid)]
             [liberator.core :refer (defresource)]
             [mcwordy.controllers.shared :refer :all]
