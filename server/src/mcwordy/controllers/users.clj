@@ -1,18 +1,11 @@
 (ns mcwordy.controllers.users
-  (:require [mcwordy.db.validations :as validations]
-            [mcwordy.db.query :as db]
-            [datomic.api :as d]
-            [mcwordy.db.maprules :as mr]
-            [mcwordy.db.transactions :as ts]
-            [flyingmachine.cartographer.core :as c]
-            [cemerick.friend :as friend]
-            cemerick.friend.workflows)
-  (:use [flyingmachine.webutils.validation :only (if-valid)]
-        [liberator.core :only [defresource]]
-        mcwordy.models.permissions
-        mcwordy.db.mapification
-        mcwordy.controllers.shared
-        mcwordy.utils))
+  (:require [cemerick.friend :as friend]
+            cemerick.friend.workflows
+            [mcwordy.controllers.shared :refer :all]
+            [mcwordy.models.permissions :refer :all]
+            [mcwordy.lib.utils :refer :all]
+            [flyingmachine.webutils.validation :refer (if-valid)]
+            [liberator.core :refer (defresource)]))
 
 (defmapifier record mr/ent->user)
 (defmapifier authrecord mr/ent->userauth)

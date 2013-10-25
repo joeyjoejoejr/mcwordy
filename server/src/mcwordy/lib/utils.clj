@@ -1,7 +1,5 @@
-(ns mcwordy.utils
-  (:require [flyingmachine.cartographer.core :as c]
-            [mcwordy.db.query :as db]
-            [markdown.core :as markdown]))
+(ns mcwordy.lib.utils
+  (:require [markdown.core :as markdown]))
 
 (defn remove-nils-from-map
   [record]
@@ -57,3 +55,7 @@
        ~@(map #(list (:argnames %)
                      `(~name ~@(:application %)))
               (drop-last unpacked-args)))))
+
+(defn deserialize
+  [m & ks]
+  (reduce #(assoc % %2 (read-string (%2 %))) m ks))

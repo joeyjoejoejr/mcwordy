@@ -1,6 +1,5 @@
 (ns mcwordy.server
   (:gen-class)
-  (:require [mcwordy.db.manage :as db])
   (:use clojure.stacktrace
         [ring.adapter.jetty :only (run-jetty)]
         ring.middleware.params
@@ -9,8 +8,10 @@
         ring.middleware.session
         ring.middleware.format
         [mcwordy.middleware.routes :only (routes)]
-        [mcwordy.middleware.auth :only (auth)]
-        [mcwordy.middleware.db-session-store :only (db-session-store)]))
+        ;; [mcwordy.middleware.auth :only (auth)]
+        ;; [mcwordy.middleware.db-session-store :only
+        ;(db-session-store)]
+        ))
 
 (defn wrap-exception [f]
   (fn [request]
@@ -29,7 +30,7 @@
 (defn wrap
   [to-wrap]
   (-> to-wrap
-      (wrap-session {:cookie-name "mcwordy-session" :store (db-session-store {})})
+      ;; (wrap-session {:cookie-name "mcwordy-session" :store (db-session-store {})})
       (wrap-restful-format :formats [:json-kw])
       wrap-exception
       wrap-keyword-params
@@ -39,7 +40,7 @@
 ; The ring app
 (def app
   (-> routes
-      auth
+      ;; auth
       ;; debug
       wrap))
 
