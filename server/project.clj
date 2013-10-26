@@ -21,7 +21,8 @@
                  [com.flyingmachine/webutils "0.1.1"]
                  [markdown-clj "0.9.25"]
                  [clavatar "0.2.1"]
-                 [org.clojure/data.json "0.2.2"]]
+                 [org.clojure/data.json "0.2.2"]
+                 [com.flyingmachine/config "1.0.0"]]
 
   :plugins [[lein-environ "0.4.0"]]
 

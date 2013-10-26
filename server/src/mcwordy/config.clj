@@ -1,12 +1,9 @@
 (ns mcwordy.config
-  (:use environ.core))
+  (:require [com.flyingmachine.config :as config]
+            [mcwordy.lib.utils :refer :all]
+            [environ.core :refer :all]))
 
-(def conf {:html-paths ["html-app"
-                        "../html-app/app"
-                        "../html-app/.tmp"]
-           :datomic {:db-uri "datomic:free://localhost:4334/mcwordy"
-                     :test-uri "datomic:mem://mcwordy"}})
 
-(defn config
-  [& keys]
-  (get-in conf keys))
+(config/update!
+ {:app (let [environment (or (env :app-env) "development")]
+         (read-resource (str "config/environments/" environment ".edn")))})

@@ -1,5 +1,6 @@
 (ns mcwordy.lib.utils
-  (:require [markdown.core :as markdown]))
+  (:require [markdown.core :as markdown]
+            [clojure.java.io :as io]))
 
 (defn remove-nils-from-map
   [record]
@@ -59,3 +60,15 @@
 (defn deserialize
   [m & ks]
   (reduce #(assoc % %2 (read-string (%2 %))) m ks))
+
+(defn slurp-resource
+  [path]
+  (-> path
+      io/resource
+      slurp))
+
+(defn read-resource
+  [path]
+  (-> path
+      slurp-resource
+      read-string))
