@@ -1,5 +1,5 @@
 (ns lobos.config
-  (:use lobos.connectivity
-        mcwordy.models.db))
+  (:require [mcwordy.models.db :as db])
+  (:use lobos.connectivity))
 
-(open-global db-config)
+(open-global db/db-config)
