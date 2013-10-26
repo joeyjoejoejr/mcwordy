@@ -1,0 +1,4 @@
+{:db {:db "mcwordy-development"
+      :user "user"
+      :password ""
+      :host "localhost"}}

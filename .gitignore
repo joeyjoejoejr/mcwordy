@@ -5,4 +5,4 @@ dist
 html-app/app/bower_components
 .lein-env
 *#*
-server/resources/config/environments/development*
+server/resources/config/environments/development.edn
